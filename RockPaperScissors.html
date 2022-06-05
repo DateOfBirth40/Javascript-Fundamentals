@@ -3,17 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <script>
         let computerPlay = () => {
             let choice = ['Rock','Paper','Scissors'];
-            return computerChoice = choice[Math.floor(Math.random()*choice.length)];
+            return computerSelection = choice[Math.floor(Math.random()*choice.length)];
         };
         computerPlay();
-        console.log(computerChoice);
+        console.log(computerSelection);
+
+        let playerSelection = prompt("Choose your weapon:");
+        playerSelection = playerSelection.toLowerCase();
+        playerSelection = (playerSelection[0].toUpperCase() + playerSelection.substring(1));
+        console.log(playerSelection);
+        let roundResult;
+        let playRound = (playerSelection, computerSelection) => {
+            if (playerSelection === 'Rock' || playerSelection === 'Paper' || playerSelection === 'Scissors') {
+                if (playerSelection !== computerSelection) {
+                    if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+                        roundResult = "You lose! Paper beats rock.";
+                    } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+                        roundResult = "You win! Rock beats scissors.";
+                    } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+                        roundResult = "You win! Paper beats rock.";
+                    } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
+                        roundResult = "You lose! Scissors beats paper.";
+                    } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+                        roundResult = "You win! Scissors beats paper.";
+                    } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+                        roundResult = "You lose! Rock beats scissors.";}}
+                else {
+                    roundResult = "Both users chose the same weapon; try again!";
+                }}
+            else {
+                roundResult = "Please choose either rock, paper, or scissors.";
+            }
+            return roundResult;
+        // console.log(roundResult);
+        };
+        playRound(playerSelection,computerSelection);
+        console.log(roundResult);
+
+        let game = () => {
+            
+        };
     </script>
 </body>
 </html>
